@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove duplicat value in array</title>
+    <script>
+      //remove duplicate value from an array
+      function removeDuplicates(arr) {
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (result.indexOf(arr[i]) === -1) {
+            result.push(arr[i]);
+          }
+        }
+        for (var j = 0; j < result.length; j++) {
+          arr[j] = result[j];
+        }
+        arr.length = result.length;
+        return arr;
+        
+      }
+      let arr = [1, 2, 3, 2, 4, 5, 1, 3];
+      let uniqueArr = removeDuplicates(arr);
+
+      console.log(uniqueArr); // Output: [1, 2, 3, 4, 5]
+    </script>
+  </head>
+  <body></body>
+</html>

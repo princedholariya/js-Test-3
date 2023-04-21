@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clone object html</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Clone-object</title>
+        <script>
+          //using spread operator
+          // let originalObj = {
+          //   name: "pinal",
+          //   age: 21,
+          //   hobby:"carrom",
+          //   hobbies: ["reading", "music"],
+          // };
+
+          // let clonedObj = { ...originalObj };
+          // console.log(clonedObj);
+
+          //
+
+          function cloneObject(originalObj) {
+            let newObj = {};
+            for (let prop in originalObj) {
+              if (Array.isArray(originalObj[prop])) {
+                newObj[prop] = [];
+                for (let i = 0; i < originalObj[prop].length; i++) {
+                  newObj[prop][i] = originalObj[prop][i];
+                }
+              } else if (typeof originalObj[prop] === "object") {
+                newObj[prop] = cloneObject(originalObj[prop]);
+              } else {
+                newObj[prop] = originalObj[prop];
+              }
+            }
+            return newObj;
+          }
+
+          let originalObj = { a: 1, b: 2, c: [3, 4, 5], d: { e: 6, f: 7 } };
+
+          let newObj = cloneObject(originalObj);
+
+          console.log(originalObj); // Output: {a: 1, b: 2, c: [3, 4, 5], d: {e: 6, f: 7}}
+          console.log(newObj); // Output: {a: 1, b: 2, c: [3, 4, 5], d: {e: 6, f: 7}}
+        </script>
+      </head>
+      <body></body>
+    </html>
+  </body>
+</html>

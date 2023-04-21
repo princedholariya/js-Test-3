@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove duplicate from an object</title>
+    <script>
+      let arr = [
+        { name: "pinal", age: 20 },
+        { name: "shyam", age: 25 },
+        { name: "pinal", age: 20 },
+        { name: "yash", age: 35 },
+        { name: "shyam", age: 25 },
+      ];
+ 
+      let uniqueArr = [];
+
+      for (let i = 0; i < arr.length; i++) {
+        
+         let isDuplicate = false;
+        for (let j = 0; j < uniqueArr.length; j++) {
+          if (
+            arr[i].name === uniqueArr[j].name &&
+            arr[i].age === uniqueArr[j].age
+          ) {
+            isDuplicate = true;
+            break;
+          }
+        }
+        if (!isDuplicate) {
+          uniqueArr.push(arr[i]);
+        }
+      }
+
+      console.log(uniqueArr);  
+    </script>
+  </head>
+  <body></body>
+</html>
